@@ -1,0 +1,666 @@
+:root{
+  --bg: #EDEAE4;
+  --paper: #DCD8D0;
+  --primary: #384953;
+  --ink: #2D2D2E;
+  --border: #DBDDBD;
+  --wood: #645B39;
+  --accent: #966A4B;
+  --max-w: 1000px;
+}
+
+/* Homepage: make the sunset/about-left image visually 90vw and centered on mobile */
+@media (max-width:900px){
+  .home .about-left img{
+    width:90vw !important;
+    max-width:90vw !important;
+    margin:0 5vw !important;
+    display:block !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* Ensure consistent left/right inset for all text inside the approach page on mobile */
+@media (max-width:900px){
+  .approach-page{
+    padding-left:18px !important;
+    padding-right:18px !important;
+    box-sizing:border-box;
+  }
+  .approach-page h2,
+  .approach-page p,
+  .approach-page .approach-text,
+  .approach-page .pair-text{
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    box-sizing:border-box;
+  }
+}
+/* Mobile: slightly larger headings that include the icon */
+@media (max-width:900px){
+  .with-icon{font-size:1.4rem !important;line-height:1.25 !important}
+}
+
+*{box-sizing:border-box}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--bg), rgba(56,73,83,0.02));
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Layout: make page a column so footer can stick to bottom when content is short */
+body{display:flex;flex-direction:column;min-height:100vh}
+main{flex:1}
+
+.container{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Tweak spacing for the about page main heading on mobile: less space above,
+   more space below so layout reads better on narrow screens */
+@media (max-width:900px){
+  .about-page .about-text h2{margin-top:8px !important; margin-bottom:14px !important}
+}
+
+/* Further refine about page mobile spacing: increase space under h2, reduce
+   gap between intro text and photo */
+@media (max-width:900px){
+  .about-page .about-text h2{margin-bottom:22px !important}
+  .about-page .about-text p{margin-bottom:12px}
+  .about-page .about-intro{gap:12px}
+  .about-page .about-photo img{margin-top:8px !important}
+}
+
+/* Tighten spacing and make photo 80% width on mobile */
+@media (max-width:900px){
+  .about-page .about-intro{gap:8px !important}
+  .about-page .about-text p{margin-bottom:8px !important}
+  .about-page .about-photo img{max-width:80% !important;width:80% !important;margin-top:4px !important}
+}
+
+/* Ensure the about photo is centered on mobile */
+@media (max-width:900px){
+  .about-page .about-photo{justify-content:center !important;display:flex !important}
+  .about-page .about-photo img{margin-left:auto !important;margin-right:auto !important;display:block !important}
+}
+
+.site-header{
+  background-color: var(--primary);
+  background-image: linear-gradient(180deg, #183028f2, #183028e6);
+}
+/* Ensure header can anchor absolute-positioned mobile nav */
+.site-header{position:relative;z-index:1000}
+
+/* Make header/footer containers full width so their contents can reach closer to the page edges */
+.site-header .container,
+.site-footer .container{
+  max-width: 100%;
+  height: 4rem;
+  margin: 0; /* ensure the container spans the full viewport */
+  padding: 0 40px; /* larger horizontal padding so content isn't flush to the edge */
+}
+
+.site-header .header-inner{
+  width: 100%;
+}
+
+.site-header .site-title{color:var(--bg)}
+.site-header .main-nav a{color:var(--bg)}
+.site-header .main-nav a:hover{opacity:0.9}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 0;
+}
+
+.site-logo{height:48px;width:auto;margin-right:0;display:block}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.site-title{margin:0;color:var(--primary);font-size:1.25rem;display:flex;align-items:center}
+
+/* Small inline logo placed inside the site title (homepage) */
+.site-title .title-logo{width:28px;height:auto;margin-right:8px;display:inline-block;vertical-align:middle}
+@media (max-width:600px){
+  .site-title .title-logo{width:22px;margin-right:6px}
+}
+
+.main-nav a{color:var(--primary);text-decoration:none;margin-left:16px;font-weight:500}
+.main-nav a:hover{color:var(--primary);opacity:0.85}
+
+.hero{
+  background-color:var(--bg);
+  position:relative;
+  overflow:visible;
+}
+.hero .container{max-width:1100px}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(56,73,83,0.02), rgba(56,73,83,0.01));pointer-events:none}
+.hero-grid{display:flex;align-items:center;gap:40px}
+.hero-left{flex:1;text-align:left;padding:8px}
+.hero-right{flex:0 0 460px;display:flex;justify-content:center;padding:8px;transform: translateY(40px);}
+.hero-right img{width:100%;max-width:460px;border-radius:12px;box-shadow:0 8px 30px rgba(18,40,30,0.12);object-fit:cover}
+.hero .hero-left h2{color:var(--primary);font-size:2.4rem;margin:0 5px 12px}
+.hero .hero-left p{max-width:640px;margin:0 0 12px;color:rgba(45,45,46,0.82);font-size:1.4rem; line-height: 1.5;}
+
+@media (max-width:900px){
+  .hero-grid{flex-direction:column}
+  .hero-right{flex:0 0 auto;transform:none;display:flex;justify-content:center;margin-top:18px}
+  .hero-right img{max-width:100%;height:auto}
+  .hero{padding:50px 0}
+}
+
+/* About section: mobile-only adjustments — center text/button and smaller image under text */
+@media (max-width:900px){
+  .about-section .about-grid{flex-direction:column;gap:18px}
+  .about-right{width:100%;text-align:center}
+  .about-right h3{font-size:1.5rem;margin-top:24px;margin-bottom:8px;color:var(--primary)}
+  .about-right p{font-size:1.2rem;line-height:1.6;color:rgba(45,45,46,0.92);margin:8px auto 12px}
+  .about-right .button{display:inline-block;margin:14px auto}
+  .about-left{order:2;display:block}
+  .about-left img{max-width:240px;width:70%;height:auto;margin:10px auto 0;display:block;transform:none;border-radius:10px}
+}
+
+/* Therapy: show alternate paragraph on mobile and add small horizontal margins */
+.therapy .mobile-only{display:none}
+.therapy .desktop-only{display:block}
+
+@media (max-width:900px){
+  .therapy .desktop-only{display:none}
+  .therapy .mobile-only{display:block;margin:0 18px;color:rgba(45,45,46,0.92);font-size:1.15rem;line-height:1.6}
+}
+
+
+
+.button{display:inline-block;background:linear-gradient(180deg, rgba(24,48,40,0.95), rgba(24,48,40,0.9));color:var(--bg);padding:12px 22px;border-radius:8px;text-decoration:none;margin-top:14px;}
+.button:hover{filter:brightness(0.95)}
+
+/* Heading icon: default = small colored dot on non-home pages; homepage uses image */
+.with-icon{display:inline-flex;align-items:center}
+.with-icon::before{
+  /* default: simple dot (used on all pages unless overridden by .home) */
+  content:"";
+  display:inline-block;
+  width:10px;height:10px;margin-left:6px;margin-right:10px;flex:0 0 10px;
+  background-color:#183028f2;border-radius:50%;
+}
+
+/* Homepage override: use the full image icon */
+.home .with-icon::before{
+  content:"";
+  display:inline-block;
+  width:65px;height:65px;margin-left:2px;margin-right:4px;flex:0 0 56px;
+  background-image: url("images/icon.png");
+  background-size:65px 65px;background-repeat:no-repeat;background-position:center;
+  background-color:transparent;border-radius:0;
+}
+
+@media (max-width:900px){
+  .approach-page .approach-intro{margin-top:6px !important}
+  .approach-page .approach-photo img{max-width:90% !important;width:90% !important;margin:6px auto 0 !important;display:block !important}
+  /* Reduce top spacing above the first h3 inside the services intro on mobile */
+  .services .services-text article h3{margin-top:13px !important}
+  /* Reduce space above the paragraph that follows the services-intro block */
+  .services .services-intro + p{margin-top:1px !important}
+  /* On mobile the grid becomes column: prevent the left column's fixed
+     flex-basis (set for desktop) from becoming a large height value. */
+  .about-left{flex:0 0 auto; width:100%}
+  .about-left img{max-width:80%;width:80%;height:auto;margin:10px auto 0;display:block;transform:none;border-radius:10px}
+}
+
+/* Ensure the main about heading is indented the same as the intro text on mobile */
+@media (max-width:900px){
+  .about-page .about-text h2{padding-left:18px;padding-right:18px;box-sizing:border-box}
+}
+
+/* Align following headings, paragraphs and button to the same horizontal inset as
+   the intro text on mobile */
+@media (max-width:900px){
+  .about-page > h3,
+  .about-page > p {
+    padding-left:18px !important;
+    padding-right:18px !important;
+    box-sizing:border-box;
+  }
+  .about-page .button{
+    display:inline-block !important;
+    margin:16px 18px 0 !important;
+  }
+}
+
+/* Slightly larger body text for the about page (only top-level h3/p inside .about-page) */
+.about-page > h3{font-size:1.5rem;margin-top:35px;margin-bottom:8px;color:var(--primary)}
+.about-page > p{font-size:1.2rem;line-height:1.6;color:rgba(45,45,46,0.92);margin-bottom:12px}
+
+/* Adjust margin-top for paragraphs in the about page */
+.about-page > p{margin-top:8px;}
+
+@media (max-width:900px){
+  /* Remove the large section padding (inline style) on small screens and
+     remove any top margin on the intro so the image sits closer to the
+     preceding text. */
+  .approach-page{padding-top:6px !important;padding-bottom:18px !important}
+  .approach-page .approach-intro{margin-top:0 !important}
+  /* Make all approach-page images narrower and centered on mobile */
+  .approach-page .approach-photo img,
+  .approach-page .pair-photo img,
+  .approach-page .approach-pair .pair-photo img,
+  .approach-page .approach-pair.img40 .pair-photo img{
+    max-width:90% !important;
+    width:90% !important;
+    margin:0 auto !important;
+    display:block !important;
+  }
+}
+.services-list li{background:var(--paper);padding:16px;border-radius:8px;box-shadow:0 1px 6px rgba(56,73,83,0.04);color:#233; border-left:4px solid var(--primary)}
+
+.gallery{padding:30px 0}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+
+/* About section on homepage: text left, image right */
+.about-section{padding-top:40px;margin-bottom: 70px;}
+.about-grid{display:flex;align-items:center;gap:0;}
+.about-right{flex:1;text-align:left}
+.about-right h3{color:var(--primary);margin-bottom:8px}
+.about-right p{color:rgba(45,45,46,0.88);line-height:1.6;margin:8px 0}
+.about-left{flex:0 0 550px;display:flex;justify-content:flex-start}
+/* make the image scale to the left column so the right column can grow */
+.about-left img{width:100%;max-width:550px;height:auto;border-radius:12px;box-shadow:0 8px 30px rgba(18,40,30,0.12);object-fit:cover;transform:translateX(-90px)}
+
+@media (max-width:900px){
+  .about-grid{flex-direction:column-reverse;gap:18px}
+  .about-right img{max-width:100%;height:auto}
+  .about-left img{width:100%;max-width:100%;height:auto;transform:none}
+}
+
+/* Constrain about page profile image specifically (override if necessary) */
+.about-page .about-photo img,
+.about-photo img{
+  width:100%;
+  max-width:220px;
+  height:auto;
+  border-radius:10px;
+  box-shadow:0 8px 24px rgba(18,40,30,0.12);
+  object-fit:cover;
+  transform:none !important;
+}
+
+/* Layout for the about page intro: 75% text / 25% photo */
+.about-page .about-intro{display:flex;align-items:flex-start;gap:20px;margin-bottom:0;}
+.about-page .about-text{flex:0 0 60%}
+.about-page .about-text p{font-size: 1.3rem;line-height: 1.8rem;}
+.about-page .about-text h2{font-size: 2.5rem;margin-bottom: 10px;margin-top: 60px;}
+.about-page .about-photo{flex:0 0 40%;display:flex;justify-content:flex-end}
+.about-page .about-photo img{margin-top:50px;width:100%;max-width:400px;height:auto;border-radius:10px;box-shadow:0 8px 24px rgba(18,40,30,0.12);object-fit:cover}
+
+.container.about-page {line-height: 1.4rem;}
+
+@media (max-width:900px){
+  .about-page .about-intro{flex-direction:column;gap:25px}
+  .about-page .about-photo{justify-content:flex-start}
+  .about-page .about-photo img{max-width:100%}
+}
+
+@media (max-width:900px){
+  .about-page .about-photo img,
+  .about-photo img{max-width:100%}
+}
+
+.therapy{padding:105px 0 60px;text-align:center}
+.therapy h3{font-size:1.5rem;margin-top:35px;margin-bottom:8px;color:var(--primary)}
+.therapy p{max-width:760px;margin:8px auto;color:rgba(45,45,46,0.92);font-size:1.2rem;line-height:1.6;margin-bottom:12px}
+.therapy .button{margin-top:18px}
+
+/* Match about page typography for homepage about-section */
+.about-section h3{font-size:1.5rem;margin-top:35px;margin-bottom:8px;color:var(--primary)}
+.about-section p{font-size:1.2rem;line-height:1.6;color:rgba(45,45,46,0.92);margin-top:8px;margin-bottom:12px}
+
+@media (max-width:600px){
+  .therapy h3,.about-section h3{font-size:1.12rem}
+  .therapy p,.about-section p{font-size:1rem}
+}
+
+/* Services page: match about page typography */
+.services h2{font-size:2rem;color:var(--primary);margin-bottom:12px}
+.services h3{font-size:1.5rem;margin-top:35px;margin-bottom:8px;color:var(--primary)}
+.services p{font-size:1.2rem;line-height:1.6;color:rgba(45,45,46,0.92);margin-top:8px;margin-bottom:12px}
+.services ul{max-width:760px;margin:8px 0 18px 0;color:rgba(45,45,46,0.92);line-height:1.6}
+
+/* Contact page typography: match about/services for consistent look */
+.contact-page h2{font-size:2rem;color:var(--primary);margin-bottom:12px}
+.contact-page p{font-size:1.2rem;line-height:1.6;color:rgba(45,45,46,0.92);margin-top:8px;margin-bottom:12px}
+
+@media (max-width:600px){
+  .contact-page h2{font-size:1.12rem}
+  .contact-page p{font-size:1rem}
+}
+
+/* Mobile: increase space above the Contact page h2 and increase its size
+   — add ~15px to the previous top margin so the heading sits visibly lower. */
+@media (max-width:900px){
+  .contact-page h2{margin-top:37px !important;margin-bottom:10px !important;font-size:1.75rem !important}
+}
+
+/* Contact grid: text left (60%), image right (40%) */
+.contact-grid{display:flex;align-items:flex-start;gap:24px}
+.contact-grid .contact-text{flex:0 0 60%}
+.contact-grid .contact-photo{flex:0 0 40%;display:flex;justify-content:flex-end}
+.contact-grid .contact-photo img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 24px rgba(18,40,30,0.12);object-fit:cover}
+.contact-grid .contact-text {margin-top: 30px;}
+
+@media (max-width:900px){
+  .contact-grid{flex-direction:column;gap:18px}
+  .contact-grid .contact-photo{justify-content:flex-start}
+  .contact-grid .contact-photo img{max-width:100%}
+}
+
+/* Add horizontal inset for contact text on mobile so content doesn't touch edges */
+@media (max-width:900px){
+  .contact-grid .contact-text{padding-left:18px !important;padding-right:18px !important;box-sizing:border-box}
+}
+
+/* Ensure contact image visually fills most of the viewport on mobile */
+@media (max-width:900px){
+  .contact-grid .contact-photo img{
+    width:90vw !important;
+    max-width:90vw !important;
+    margin:0 5vw !important;
+    display:block !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* Prevent main from stretching to fill viewport on mobile so footer sits close to content */
+@media (max-width:900px){
+  main{flex:0 0 auto}
+}
+
+/* Fix: remove large vertical gap on the Contact page for small screens.
+   The page had an inline `padding:40px 0;` on the section and
+   `.contact-text` also used `margin-top:30px;` which together created
+   a much larger gap than the h2 margin alone. Override these only on
+   mobile so desktop is unchanged. */
+@media (max-width:900px){
+  .contact-page{padding-top:12px !important;padding-bottom:18px !important}
+  .contact-grid .contact-text{margin-top:0 !important;padding-top:10px !important}
+  .contact-page .contact-text h2{margin-top:6px !important}
+}
+
+/* Larger gap before the second article heading (Korte kurser og workshops) */
+.services article + article h3{margin-top:48px}
+
+@media (max-width:600px){
+  .services h3{font-size:1.12rem}
+  .services p{font-size:1rem}
+}
+
+/* Services page: tighten heading spacing and slightly reduce list font-size on mobile */
+@media (max-width:900px){
+  /* stronger selectors: match actual DOM structure and ensure rules apply */
+  .services .services-text h2{margin-bottom:5px !important}
+  .services ul{margin:4px 0 2px 0 !important; padding-left:18px !important}
+  .services ul li{font-size:1rem !important}
+  .services .services-intro + p{margin-top:1px !important}
+  /* Make article paragraphs inside .services-text match list font-size on mobile */
+  .services .services-text article p{font-size:1rem !important;line-height:1.6 !important;margin-bottom:10px !important}
+}
+.services-intro{display:flex;align-items:flex-start;gap:20px;margin-top:20px;margin-bottom:26px}
+.services-text{flex:0 0 55%}
+.services-text h2{font-size:2.5rem;margin-bottom:10px;color:var(--primary)}
+.services-text p,.services-text ul{font-size:1.2rem;line-height:1.6;color:rgba(45,45,46,0.92)}
+.services-photo{flex:0 0 45%;display:flex;justify-content:flex-end;padding-top:130px}
+.services-photo img{width:100%;max-width:380px;border-radius:10px;box-shadow:0 8px 24px rgba(18,40,30,0.12);object-fit:cover}
+.services > p:last-child{margin-bottom:50px;}
+@media (max-width:900px){
+  .services-intro{flex-direction:column-reverse;gap:14px}
+  .services-photo{justify-content:flex-start;padding-top:0}
+  .services-photo img{max-width:100%}
+}
+.img-card{background:var(--paper);border-radius:10px;overflow:hidden;box-shadow:0 6px 22px rgba(56,73,83,0.06)}
+.img-card img{display:block;width:100%;height:220px;object-fit:cover}
+.img-caption{padding:10px 12px;color:var(--primary);font-size:0.95rem}
+
+.small{color:var(--primary);font-size:0.9rem}
+
+.site-footer{padding:24px 0;border-top:1px solid rgba(0,0,0,0.06);background-color:var(--primary);background-image:linear-gradient(180deg, rgba(24,48,40,0.95), rgba(24,48,40,0.9));font-size:0.95rem;color:var(--bg)}
+.site-footer a{color:var(--bg)}
+.site-footer .container{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.footer-left{display:flex;align-items:center;gap:12px}
+.footer-right p{margin:0;}
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.footer-social{display:flex;align-items:center;gap:20px}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;color:var(--bg);text-decoration:none}
+.footer-social svg{width:35px;height:35px;fill:currentColor}
+
+@media (max-width:600px){
+  .site-footer .container{flex-direction:column;align-items:center;text-align:center}
+  .footer-right{text-align:center}
+}
+
+@media (max-width:600px){
+  .site-header .container,
+  .site-footer .container{padding:0 20px}
+}
+
+@media (max-width:600px){
+  .header-inner{flex-direction:row;gap:12px;align-items:center;justify-content:space-between}
+  .site-title{font-size:1.1rem}
+  .site-logo{height:40px}
+  .main-nav a{margin-left:0;margin-right:14px}
+  .hero h2{font-size:1.3rem}
+  .therapy{padding:40px 0 40px}
+  /* ensure header container auto-height on very small screens */
+  .site-header .container{height:auto;padding:10px 16px}
+}
+
+@media (max-width:420px){
+  .hero .hero-left h2{font-size:2rem;line-height:1.25}
+}
+
+/* Global helper classes for mobile/desktop visibility */
+.mobile-only{display:none}
+.desktop-only{display:inline}
+@media (max-width:900px){
+  .mobile-only{display:inline}
+  .desktop-only{display:none}
+}
+
+/* Ensure mobile-only paragraphs behave as blocks on small screens */
+@media (max-width:900px){
+  p.mobile-only, .about-page .mobile-only{display:block;margin:0 18px 12px;color:rgba(45,45,46,0.92);font-size:1.2rem;line-height:1.6}
+}
+
+/* Mobile menu styles: hide desktop nav on small screens, show toggle */
+.mobile-menu-toggle{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.mobile-menu-toggle .hamburger{display:block;width:22px;height:2px;background:var(--bg);position:relative}
+.mobile-menu-toggle .hamburger::before,.mobile-menu-toggle .hamburger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--bg)}
+.mobile-menu-toggle .hamburger::before{top:-7px}
+.mobile-menu-toggle .hamburger::after{top:7px}
+
+.mobile-nav{display:none;flex-direction:column;background:var(--paper);padding:12px;border-radius:8px;box-shadow:0 6px 20px rgba(18,40,30,0.08);margin-top:8px}
+.mobile-nav a{padding:10px 8px;color:var(--primary);text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.04)}
+.mobile-nav a:last-child{border-bottom:0}
+.mobile-nav.open{display:flex}
+
+@media (max-width:900px){
+  .main-nav{display:none}
+  .mobile-menu-toggle{display:inline-flex}
+  /* ensure header container can grow so mobile nav isn't clipped */
+  .site-header .container{height:auto;padding:12px 20px}
+  .header-inner{flex-direction:row;align-items:center;justify-content:space-between}
+  .brand{margin-right:auto}
+  /* position dropdown below header without expanding it */
+  .mobile-nav{position:absolute;left:12px;right:12px;top:100%;margin-top:8px;z-index:1000}
+}
+
+@media (min-width:901px){
+  .mobile-nav{display:none !important}
+  .mobile-menu-toggle{display:none !important}
+}
+
+/* Homepage: slightly larger hero h2 on desktop for better emphasis */
+@media (min-width:901px){
+  .home .hero .hero-left h2.with-icon{
+    font-size:2.6rem !important;
+    line-height:1.2 !important;
+  }
+}
+
+/* Also increase the homepage hero H2 on mobile so it's more prominent */
+@media (max-width:900px){
+  .home .hero .hero-left h2.with-icon{
+    font-size:2.0rem !important;
+    line-height:1.18 !important;
+  }
+}
+
+/* Approach page: text left, relatively large image top-right, full-width body paragraphs below */
+.approach-page .approach-intro{display:flex;align-items:flex-start;gap:24px;margin-bottom:50px;margin-top: 30px;}
+.approach-page .approach-text{flex:0 0 40%}
+.approach-page .approach-text h2{font-size:2rem;color:var(--primary);margin-top:8px;margin-bottom:10px}
+.approach-page .approach-text p{font-size:1.18rem;line-height:1.7;color:rgba(45,45,46,0.92)}
+.approach-page .approach-photo{flex:0 0 60%;display:flex;justify-content:flex-end}
+.approach-page .approach-photo img{width:100%;max-width:none;border-radius:12px;box-shadow:0 8px 30px rgba(18,40,30,0.12);object-fit:cover}
+.approach-page .approach-body{margin-top:18px}
+.approach-page .approach-body p{font-size:1.12rem;line-height:1.7;margin-bottom:14px;color:rgba(45,45,46,0.92)}
+
+@media (max-width:900px){
+  .approach-page .approach-intro{flex-direction:column-reverse;gap:18px}
+  .approach-page .approach-photo{justify-content:flex-start}
+  .approach-page .approach-photo img{max-width:100%}
+}
+
+/* Pair block: image left, text right for subsections like 'Eksistentialisme' */
+.approach-pair{display:flex;align-items:flex-start;gap:20px;margin-top: 20px;}
+.approach-pair .pair-photo{flex:0 0 60%;display:flex;justify-content:flex-start}
+.approach-pair .pair-photo img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 24px rgba(18,40,30,0.12);object-fit:cover;margin-top:80px;}
+.approach-pair .pair-text{flex:0 0 40%}
+.approach-pair .pair-text h2{margin-top:45px;margin-left: 20px;color:var(--primary);font-size:1.6rem}
+.approach-pair .pair-text p{font-size:1.12rem;margin-left: 20px;padding-right:40px;line-height:1.7;color:rgba(45,45,46,0.92)}
+
+@media (max-width:900px){
+  .approach-pair{flex-direction:column;gap:14px}
+  .approach-pair .pair-photo{order:0}
+  .approach-pair .pair-text{order:1}
+  .approach-pair .pair-photo img{max-width:100%}
+}
+
+/* Variant: small image (40% width) when used for subsections */
+.approach-pair.img40 .pair-photo{flex:0 0 45%}
+.approach-pair.img40 .pair-text{flex:0 0 55%}
+.approach-pair.img40 .pair-photo img{width:100%;height:auto}
+
+@media (max-width:900px){
+  .approach-pair.img40{flex-direction:column;gap:14px}
+  .approach-pair.img40 .pair-photo{order:0}
+  .approach-pair.img40 .pair-text{order:1}
+}
+
+/* Force-mobile overrides for the homepage/about-section to ensure styles apply
+   even if other rules appear later in the stylesheet. Keeps desktop unchanged. */
+@media (max-width:900px){
+  .about-section .about-grid{flex-direction:column;gap:18px}
+  .about-left{order:2;display:block}
+  .about-left img{max-width:80%;width:80%;height:auto;margin:10px auto 0;display:block;transform:none;border-radius:10px}
+  .about-right{width:100%;text-align:center!important}
+  .about-right h3{font-size:1.5rem;margin-top:24px;margin-bottom:8px;;color:var(--primary)}
+  .about-right p{font-size:1.2rem;line-height:1.6;color:rgba(45,45,46,0.92);margin:8px auto 12px}
+  .about-right .button{display:inline-block;margin:14px auto}
+}
+
+/* Reduce space below about-section on mobile so footer is 30px away */
+@media (max-width:900px){
+  .about-section{margin-bottom:30px}
+}
+
+/* Mobile footer layout: keep icons same size, place them to the left and text to the right, with slightly smaller text */
+@media (max-width:600px){
+  .site-footer .container{flex-direction:row;align-items:center;justify-content:space-between;padding:12px 20px}
+  .footer-left{order:0}
+  .footer-right{order:1;display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:6px;font-size:0.88rem}
+  .footer-right p{margin:0;font-size:0.88rem}
+  .footer-social{order:0;margin-right:8px}
+  .footer-social a{margin-right:8px}
+  .site-footer .container{width:100%}
+}
+
+/* Strong, late mobile override: ensure .about-left does not keep its desktop
+   flex-basis when the about grid stacks vertically. Placed late so it wins
+   the cascade on mobile devices. */
+@media (max-width:900px){
+  .about-section .about-grid .about-left{
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .about-section .about-grid .about-left img{
+    max-width: 80% !important;
+    width: 80% !important;
+    height: auto !important;
+    margin: 10px auto 0 !important;
+    display:block !important;
+  }
+}
+
+/* Approach page: reduce top spacing above the intro image and limit image
+   width to 80% on mobile for a tighter layout */
+@media (max-width:900px){
+  .approach-page .approach-intro{margin-top:0 !important}
+  .approach-page .approach-photo img{max-width:90% !important;width:90% !important;margin:8px auto 0 !important;display:block !important}
+}
+
+/* High-specificity mobile override: make approach images use 90vw so they
+   visually fill more of the viewport on small screens and ignore container
+   padding that would otherwise shrink them. */
+@media (max-width:900px){
+  .approach-page img,
+  .approach-page .approach-photo img,
+  .approach-page .pair-photo img,
+  .approach-page .approach-pair .pair-photo img{
+    width:90vw !important;
+    max-width:90vw !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    display:block !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* Extra specific rule for the smaller variant used at the bottom of the page */
+@media (max-width:900px){
+  section.approach-page .approach-pair.img40 .pair-photo img{
+    width:90vw !important;
+    max-width:90vw !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    display:block !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* Strong, late override specifically for the homepage about image so
+   it can visually span the viewport on small screens despite other rules */
+@media (max-width:900px){
+  .home .about-section .about-grid .about-left img,
+  .home .about-left img{
+    width:90vw !important;
+    max-width:90vw !important;
+    margin:0 !important;
+    display:block !important;
+    box-sizing:border-box !important;
+    position:relative !important;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+  }
+}
