@@ -126,12 +126,6 @@ main{flex:1}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
 .site-title{margin:0;color:var(--primary);font-size:1.25rem;display:flex;align-items:center}
 
-/* Small inline logo placed inside the site title (homepage) */
-.site-title .title-logo{width:28px;height:auto;margin-right:8px;display:inline-block;vertical-align:middle}
-@media (max-width:600px){
-  .site-title .title-logo{width:22px;margin-right:6px}
-}
-
 .main-nav a{color:var(--primary);text-decoration:none;margin-left:16px;font-weight:500}
 .main-nav a:hover{color:var(--primary);opacity:0.85}
 
@@ -537,11 +531,11 @@ main{flex:1}
 }
 
 /* Pair block: image left, text right for subsections like 'Eksistentialisme' */
-.approach-pair{display:flex;align-items:flex-start;gap:20px;margin-top: 20px;}
+.approach-pair{display:flex;align-items:flex-start;gap:20px;margin-top: 30px;}
 .approach-pair .pair-photo{flex:0 0 60%;display:flex;justify-content:flex-start}
-.approach-pair .pair-photo img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 24px rgba(18,40,30,0.12);object-fit:cover;margin-top:80px;}
+.approach-pair .pair-photo img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 24px rgba(18,40,30,0.12);object-fit:cover;margin-top:40px;}
 .approach-pair .pair-text{flex:0 0 40%}
-.approach-pair .pair-text h2{margin-top:45px;margin-left: 20px;color:var(--primary);font-size:1.6rem}
+.approach-pair .pair-text h2{margin-top:5px;margin-left: 20px;color:var(--primary);font-size:1.6rem}
 .approach-pair .pair-text p{font-size:1.12rem;margin-left: 20px;padding-right:40px;line-height:1.7;color:rgba(45,45,46,0.92)}
 
 @media (max-width:900px){
@@ -560,6 +554,17 @@ main{flex:1}
   .approach-pair.img40{flex-direction:column;gap:14px}
   .approach-pair.img40 .pair-photo{order:0}
   .approach-pair.img40 .pair-text{order:1}
+}
+
+/* Ensure the compassion block's text is pushed down on desktop only.
+   Placed after the .approach-pair rules so it takes precedence. */
+@media (min-width:901px){
+  /* Use transform to visually shift the Compassion block down on desktop only.
+     Transform is non-destructive to layout and won't affect mobile rules. */
+  .approach-pair.img40 .pair-text{
+    transform: translateY(55px) !important;
+    will-change: transform;
+  }
 }
 
 /* Force-mobile overrides for the homepage/about-section to ensure styles apply
