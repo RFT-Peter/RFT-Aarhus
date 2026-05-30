@@ -223,7 +223,8 @@ main{flex:1}
 @media (max-width:900px){
   .about-page > h2,
   .about-page > h3,
-  .about-page > p {
+  .about-page > p,
+  .about-page > ul {
     padding-left:18px !important;
     padding-right:18px !important;
     box-sizing:border-box;
@@ -241,6 +242,10 @@ main{flex:1}
 
 /* Adjust margin-top for paragraphs in the about page */
 .about-page > p{margin-top:8px;}
+
+/* Match list styling to paragraph text on about page */
+.about-page > ul{font-size:1.2rem;line-height:1.6;color:rgba(45,45,46,0.92);margin-bottom:12px;margin-top:8px;margin-left:20px;list-style:disc}
+.about-page ul li{font-size:1.2rem;line-height:1.6;color:rgba(45,45,46,0.92);margin-bottom:8px}
 
 @media (max-width:900px){
   /* Remove the large section padding (inline style) on small screens and
@@ -296,7 +301,7 @@ main{flex:1}
 /* Layout for the about page intro: 75% text / 25% photo */
 .about-page .about-intro{display:flex;align-items:flex-start;gap:20px;margin-bottom:0;}
 .about-page .about-text{flex:0 0 60%}
-.about-page .about-text p{font-size: 1.3rem;line-height: 1.8rem;}
+.about-page .about-text p{font-size: 1.3rem;line-height: 2rem;}
 .about-page .about-text h1,
 .about-page .about-text h2{font-size: 2.5rem;margin-bottom: 15px;margin-top: 60px;}
 .about-page .about-photo{flex:0 0 40%;display:flex;justify-content:flex-end}
